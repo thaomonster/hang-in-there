@@ -4,8 +4,12 @@ var posterTitle = document.querySelector('.poster-title');
 var posterQuote = document.querySelector('.poster-quote');
 var showRandomPosterBtn = document.querySelector('.show-random');
 var makeYourOwnPosterBtn = document.querySelector('.show-form');
+var showSavedPosterBtn = document.querySelector('.show-saved');
+var takeMeBackBtn = document.querySelector('.show-main');
+var backToMainBtn = document.querySelector('.back-to-main')
 var formPage = document.querySelector('.poster-form');
 var mainPage = document.querySelector('.main-poster');
+var savedPage = document.querySelector('.saved-posters');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -111,38 +115,42 @@ var currentPoster;
 // event listeners go here 👇
 window.onload = randomizePosters();
 showRandomPosterBtn.addEventListener('click', randomizePosters);
-makeYourOwnPosterBtn.addEventListener('click', showForm)
+
+makeYourOwnPosterBtn.addEventListener('click', function() {
+  toggleShowHidePages(mainPage, formPage)
+});
+
+showSavedPosterBtn.addEventListener('click', function() {
+ toggleShowHidePages(mainPage, savedPage)
+});
+
+takeMeBackBtn.addEventListener('click', function() {
+  toggleShowHidePages(mainPage, formPage)
+});
+
+backToMainBtn.addEventListener('click', function() {
+  toggleShowHidePages(mainPage, savedPage)
+});
+
+
+
 
 // functions and event handlers go here 👇
-function getRandomImage() {
-  var randomImageIndex = getRandomIndex(images);
-  return images[randomImageIndex];
-};
-
-function getRandomTitle() {
-  var randomTitleIndex = getRandomIndex(titles);
-  return titles[randomTitleIndex];
-};
-
-function getRandomQuote() {
-  var randomQuoteIndex = getRandomIndex(quotes);
-  return quotes[randomQuoteIndex]
+// (we've provided one for you to get you started)!
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 };
 
 function randomizePosters() {
-  var randomPoster = new Poster(getRandomImage(), getRandomTitle(), getRandomQuote());
+  var randomPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
 
   posterImage.src = randomPoster.imageURL;
   posterTitle.innerText = randomPoster.title;
   posterQuote.innerText = randomPoster.quote;
 };
 
-function showForm() {
-  formPage.classList.remove('hidden');
-  mainPage.classList.add('hidden')
-}
-
-// (we've provided one for you to get you started)!
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
+function toggleShowHidePages(pageOne, pageTwo) {
+  pageOne.classList.toggle('hidden')
+  pageTwo.classList.toggle('hidden')
 };
+
