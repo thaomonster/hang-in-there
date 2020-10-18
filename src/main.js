@@ -2,14 +2,21 @@
 var posterImage = document.querySelector('.poster-img');
 var posterTitle = document.querySelector('.poster-title');
 var posterQuote = document.querySelector('.poster-quote');
+
 var showRandomPosterBtn = document.querySelector('.show-random');
 var makeYourOwnPosterBtn = document.querySelector('.show-form');
 var showSavedPosterBtn = document.querySelector('.show-saved');
 var takeMeBackBtn = document.querySelector('.show-main');
-var backToMainBtn = document.querySelector('.back-to-main')
+var backToMainBtn = document.querySelector('.back-to-main');
+var showMyPosterBtn = document.querySelector('.make-poster')
+
 var formPage = document.querySelector('.poster-form');
 var mainPage = document.querySelector('.main-poster');
 var savedPage = document.querySelector('.saved-posters');
+
+var userInputImage = document.querySelector('#poster-image-url');
+var userInputTitle = document.querySelector('#poster-title');
+var userInputQuote = document.querySelector('#poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -132,8 +139,11 @@ backToMainBtn.addEventListener('click', function() {
   toggleShowHidePages(mainPage, savedPage)
 });
 
-
-
+showMyPosterBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  createUserInputPoster();
+  toggleShowHidePages(mainPage, formPage)
+});
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -150,7 +160,22 @@ function randomizePosters() {
 };
 
 function toggleShowHidePages(pageOne, pageTwo) {
-  pageOne.classList.toggle('hidden')
-  pageTwo.classList.toggle('hidden')
+  pageOne.classList.toggle('hidden');
+  pageTwo.classList.toggle('hidden');
+};
+
+function saveUserInput() {
+  images.push(userInputImage.value);
+  titles.push(userInputTitle.value);
+  quotes.push(userInputQuote.value);
+};
+
+function createUserInputPoster() {
+  saveUserInput();
+  currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
+
+  posterImage.src = currentPoster.imageURL;
+  posterTitle.innerText = currentPoster.title;
+  posterQuote.innerText = currentPoster.quote;
 };
 
