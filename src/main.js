@@ -8,7 +8,8 @@ var makeYourOwnPosterBtn = document.querySelector('.show-form');
 var showSavedPosterBtn = document.querySelector('.show-saved');
 var takeMeBackBtn = document.querySelector('.show-main');
 var backToMainBtn = document.querySelector('.back-to-main');
-var showMyPosterBtn = document.querySelector('.make-poster')
+var showMyPosterBtn = document.querySelector('.make-poster');
+var savePosterBtn = document.querySelector('.save-poster');
 
 var formPage = document.querySelector('.poster-form');
 var mainPage = document.querySelector('.main-poster');
@@ -17,6 +18,8 @@ var savedPage = document.querySelector('.saved-posters');
 var userInputImage = document.querySelector('#poster-image-url');
 var userInputTitle = document.querySelector('#poster-title');
 var userInputQuote = document.querySelector('#poster-quote');
+
+var savedPostersGrid = document.querySelector('.saved-posters-grid')
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -122,6 +125,7 @@ var currentPoster;
 // event listeners go here 👇
 window.onload = randomizePosters();
 showRandomPosterBtn.addEventListener('click', randomizePosters);
+savePosterBtn.addEventListener('click', savePoster);
 
 makeYourOwnPosterBtn.addEventListener('click', function() {
   toggleShowHidePages(mainPage, formPage)
@@ -145,6 +149,7 @@ showMyPosterBtn.addEventListener('click', function(event) {
   toggleShowHidePages(mainPage, formPage)
 });
 
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
@@ -152,11 +157,11 @@ function getRandomIndex(array) {
 };
 
 function randomizePosters() {
-  var randomPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
+  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
 
-  posterImage.src = randomPoster.imageURL;
-  posterTitle.innerText = randomPoster.title;
-  posterQuote.innerText = randomPoster.quote;
+  posterImage.src = currentPoster.imageURL;
+  posterTitle.innerText = currentPoster.title;
+  posterQuote.innerText = currentPoster.quote;
 };
 
 function toggleShowHidePages(pageOne, pageTwo) {
@@ -173,9 +178,33 @@ function saveUserInput() {
 function createUserInputPoster() {
   saveUserInput();
   currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
-
   posterImage.src = currentPoster.imageURL;
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
+  clearInputs();
 };
 
+function clearInputs() {
+  userInputImage.value = '';
+  userInputTitle.value = '';
+  userInputQuote.value = '';
+};
+
+function savePoster() {
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+    addSavePoster();
+  };
+};
+
+function addSavePoster() {
+  savedPostersGrid.innerHTML = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    savedPostersGrid.insertAdjacentHTML('afterbegin', 
+    `<article class="mini-poster">
+      <img class="poster-img" src=${savedPosters[i].imageURL} alt="nothin' to see here">
+      <h2 class="poster-title">${savedPosters[i].title}</h2>
+      <h4 class="poster-quote">${savedPosters[i].quote}</h4>
+    </article`);
+  };
+};
