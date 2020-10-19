@@ -126,29 +126,11 @@ var currentPoster;
 window.onload = randomizePosters();
 showRandomPosterBtn.addEventListener('click', randomizePosters);
 savePosterBtn.addEventListener('click', savePoster);
-
-makeYourOwnPosterBtn.addEventListener('click', function() {
-  toggleShowHidePages(mainPage, formPage)
-});
-
-showSavedPosterBtn.addEventListener('click', function() {
- toggleShowHidePages(mainPage, savedPage)
-});
-
-takeMeBackBtn.addEventListener('click', function() {
-  toggleShowHidePages(mainPage, formPage)
-});
-
-backToMainBtn.addEventListener('click', function() {
-  toggleShowHidePages(mainPage, savedPage)
-});
-
-showMyPosterBtn.addEventListener('click', function(event) {
-  event.preventDefault();
-  createUserInputPoster();
-  toggleShowHidePages(mainPage, formPage)
-});
-
+makeYourOwnPosterBtn.addEventListener('click', goToFormPage);
+takeMeBackBtn.addEventListener('click', goToFormPage);
+showSavedPosterBtn.addEventListener('click', goToSavePage);
+backToMainBtn.addEventListener('click', goToSavePage);
+showMyPosterBtn.addEventListener('click', createUserInputPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -164,9 +146,17 @@ function randomizePosters() {
   posterQuote.innerText = currentPoster.quote;
 };
 
-function toggleShowHidePages(pageOne, pageTwo) {
+function togglePages(pageOne, pageTwo) {
   pageOne.classList.toggle('hidden');
   pageTwo.classList.toggle('hidden');
+};
+
+function goToFormPage() {
+  togglePages(mainPage, formPage);
+};
+
+function goToSavePage() {
+  togglePages(mainPage, savedPage);
 };
 
 function saveUserInput() {
@@ -175,12 +165,14 @@ function saveUserInput() {
   quotes.push(userInputQuote.value);
 };
 
-function createUserInputPoster() {
+function createUserInputPoster(event) {
+  event.preventDefault();
   saveUserInput();
   currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
   posterImage.src = currentPoster.imageURL;
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
+  hideOrShowFormPage();
   clearInputs();
 };
 
@@ -208,3 +200,4 @@ function addSavePoster() {
     </article`);
   };
 };
+
