@@ -23,7 +23,7 @@ The motivation behind this projects creation was to build an application to help
 * [Save This Poster](#Save-This-Poster)
 * [Show Saved Posters](#Show-Saved-Posters)
 * [Double Click to Delete Saved Posters](#Double-Click-to-Delete-Saved-Poster)
-* [Roadmap](#to-do)
+* [Continuous Improvement/Future Improvements](#Continuous-Improvement/Future-Improvements)
 
 #### Generate Random Poster
 Upon page load, a random poster will be generated, drawing on an array of titles, poster images and quotes 'under the hood'. Clicking on `Show Another Random Poster` in the navigation bar at the bottom of the site will generate a new, random inspirational poster!
