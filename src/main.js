@@ -168,11 +168,12 @@ function saveUserInput() {
 
 function createUserInputPoster(event) {
   event.preventDefault();
-  saveUserInput();
+
   currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
   posterImage.src = currentPoster.imageURL;
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
+  
   goToFormPage();
   clearInputs();
 };
