@@ -99,15 +99,16 @@ In the "Show Saved Poster" section, double-clicking directly on the saved poster
 <table>
     <tr>
         <td> Thao Ma <a href="https://github.com/thaomonster">GH</td>
+        <td> Cody Durham <a href="https://github.com/Cody-Durham">GH</td>
     </tr>
     </tr>
 
 <td><img src="https://avatars0.githubusercontent.com/u/67611512?s=460&u=539b2ddb5db472ee1db734c0ce522551ad071521&v=4" alt="Ms. Turtle"
  width="150" height="auto" /></td>
+
+<td><img src="https://avatars1.githubusercontent.com/u/59241572?s=400&u=40b3f465a77b54526bb08c1cf0a8564982354d14&v=4" alt="Mr. Fisher"
+ width="150" height="auto" /></td>
 </table>
-
-
-
 
 ## Contributors
     
