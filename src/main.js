@@ -194,7 +194,7 @@ function displaySavePoster() {
   savedPostersGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     savedPostersGrid.insertAdjacentHTML('afterbegin', 
-    `<div id="${savedPosters[i].id}" class="mini-poster dbl-click">
+    `<div id="${savedPosters[i].id}" class="mini-poster">
       <img class="poster-img" src=${savedPosters[i].imageURL} alt="nothin' to see here">
       <h2 class="poster-title">${savedPosters[i].title}</h2>
       <h4 class="poster-quote">${savedPosters[i].quote}</h4>
@@ -203,9 +203,9 @@ function displaySavePoster() {
 };
 
 function deletePoster(event) {
-  if (event.target.closest('.dbl-click')) {
+  if (event.target.closest('.mini-poster')) {
     for (var i = 0; i < savedPosters.length; i++) {
-      if (event.target.closest('.dbl-click').id == savedPosters[i].id) {
+      if (event.target.closest('.mini-poster').id == savedPosters[i].id) {
         savedPosters.splice(i,1)
       };
     };
