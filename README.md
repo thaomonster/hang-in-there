@@ -88,9 +88,9 @@ In the "Show Saved Poster" section, double-clicking directly on the saved poster
 
 ### Continuous Improvement/Future Improvements
  In the next iteration we hope to add:
-    * Re-order saved posters
-    * Ability to enlarge view of saved cover by clicking on it
-    * Error messages if the form is not filled out correctly
+  * Re-order saved posters
+  * Ability to enlarge view of saved cover by clicking on it
+  * Error messages if the form is not filled out correctly
 
 
 
