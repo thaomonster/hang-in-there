@@ -19,7 +19,7 @@ var userInputImage = document.querySelector('#poster-image-url');
 var userInputTitle = document.querySelector('#poster-title');
 var userInputQuote = document.querySelector('#poster-quote');
 
-var savedPostersGrid = document.querySelector('.saved-posters-grid')
+var savedPostersGrid = document.querySelector('.saved-posters-grid');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -131,6 +131,7 @@ takeMeBackBtn.addEventListener('click', goToFormPage);
 showSavedPosterBtn.addEventListener('click', goToSavePage);
 backToMainBtn.addEventListener('click', goToSavePage);
 showMyPosterBtn.addEventListener('click', createUserInputPoster);
+savedPostersGrid.addEventListener('dblclick', deletePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -172,7 +173,7 @@ function createUserInputPoster(event) {
   posterImage.src = currentPoster.imageURL;
   posterTitle.innerText = currentPoster.title;
   posterQuote.innerText = currentPoster.quote;
-  hideOrShowFormPage();
+  goToFormPage();
   clearInputs();
 };
 
@@ -185,19 +186,29 @@ function clearInputs() {
 function savePoster() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
-    addSavePoster();
+    displaySavePoster();
   };
 };
 
-function addSavePoster() {
+function displaySavePoster() {
   savedPostersGrid.innerHTML = "";
   for (var i = 0; i < savedPosters.length; i++) {
     savedPostersGrid.insertAdjacentHTML('afterbegin', 
-    `<article class="mini-poster">
+    `<div id="${savedPosters[i].id}" class="mini-poster">
       <img class="poster-img" src=${savedPosters[i].imageURL} alt="nothin' to see here">
       <h2 class="poster-title">${savedPosters[i].title}</h2>
       <h4 class="poster-quote">${savedPosters[i].quote}</h4>
-    </article`);
+    </div>`);
   };
 };
 
+function deletePoster(event) {
+  if (event.target.closest('.mini-poster')) {
+    for (var i = 0; i < savedPosters.length; i++) {
+      if (event.target.closest('.mini-poster').id == savedPosters[i].id) {
+        savedPosters.splice(i,1)
+      };
+    };
+  };
+  displaySavePoster();
+};
