@@ -3,18 +3,19 @@
 ###### Create Your Own Inspirational Poster!
 ---
 ## Table of Contents
-[Introduction](#introduction)
-[Features](#features)
-[Deployment](#deployment)
-[Authors](#authors)
-[Contributors](#contributors)
+* [Introduction](#introduction)
+* [Features](#features)
+* [Technologies](#technologies)
+* [Deployment](#deployment)
+* [Authors](#authors)
+* [Contributors](#contributors)
 
 
 ## Introduction
 The primary goal of [Hang In There](https://github.com/thaomonster/hang-in-there) is to have the user generate random inspirational posters or create their own! This project was created using JS from a blank canvas given only data and one function. ([Project Specs](https://frontend.turing.io/projects/module-1/hang-in-there.html)).
 
 #### Motivation
-The motivation behind this projects creation was to build an application to help the user generate their own insiprational poster or if they can't think of anything they can generate a random poster while we focused on writing DRY JS and solidifying good habits in git workflow as a team.
+The motivation behind this projects creation was to build an application to help the user generate their own insiprational poster or if they can't think of anything they can generate a random poster while we focused on writing DRY JS and solidifying good habits in git workflow.
 
 ---
 ## Features
@@ -81,9 +82,11 @@ In the "Show Saved Poster" section, double-clicking directly on the saved poster
   </details>
 
 ---
+## Technologies
+JS, HTML & CSS
 
 ## Deployment
-# https://thaomonster.github.io/hang-in-there/
+### https://thaomonster.github.io/hang-in-there/
 
 
 ### Continuous Improvement/Future Improvements
