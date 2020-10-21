@@ -98,7 +98,6 @@ JS, HTML & CSS
 
 
 ## Authors
-
 <table>
     <tr>
         <td> Thao Ma <a href="https://github.com/thaomonster">GH</td>
@@ -107,10 +106,9 @@ JS, HTML & CSS
 
 <td><img src="https://avatars0.githubusercontent.com/u/67611512?s=460&u=539b2ddb5db472ee1db734c0ce522551ad071521&v=4" alt="Ms. Turtle"
  width="150" height="auto" /></td>
+</table>
 
 ## Contributors
-    
     Thank you for your contributions!
         
 For his help and direction as a reviewer: <a href="https://github.com/geoff616">Geoff Wright</a>
-
