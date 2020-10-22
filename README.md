@@ -104,7 +104,7 @@ JS, HTML & CSS
     </tr>
     </tr>
 
-<td><img src="https://avatars0.githubusercontent.com/u/67611512?s=460&u=539b2ddb5db472ee1db734c0ce522551ad071521&v=4" alt="Ms. Turtle"
+<td><img src="https://avatars3.githubusercontent.com/u/67611512?s=400&u=ef3bac38d4f7d6d8a899d26ce1f0eb169f11bb9b&v=4" alt="Ms. Turtle"
  width="150" height="auto" /></td>
 </table>
 
